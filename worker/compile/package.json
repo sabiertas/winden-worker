@@ -1,0 +1,21 @@
+{
+  "name": "compile",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "pull": "node pull.js",
+    "generate": "tailwindcss -i ./input.css -o ./output.css --minify",
+    "client": "node client.js",
+    "push": "node push.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "axios": "^1.4.0"
+  },
+  "volta": {
+    "node": "16.15.1",
+    "yarn": "1.22.19"
+  }
+}

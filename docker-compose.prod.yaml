@@ -1,0 +1,24 @@
+version: "3"
+
+# Production environment override
+services:
+  php:
+    volumes:
+      # If you develop on Linux, you may use a bind-mounted host directory instead
+      - ./var/log:/srv/symfony/var/log:rw
+    environment:
+      APP_ENV: prod
+      APP_SECRET: ${APP_SECRET}
+      SERVER_NAME: ${SERVER_NAME}
+      GITHUB_API_TOKEN: ${GITHUB_API_TOKEN}
+      WORKER_TOKEN: ${WORKER_TOKEN}
+      WORKER_REPO_OWNER: ${WORKER_REPO_OWNER}
+      WORKER_REPO_NAME: ${WORKER_REPO_NAME}
+      WORKER_REPO_REF: ${WORKER_REPO_REF}
+      CF_API_TOKEN: ${CF_API_TOKEN}
+
+  database:
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+      # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      - /docker/db/data:/var/lib/postgresql/data:rw

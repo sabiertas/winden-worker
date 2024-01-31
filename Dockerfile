@@ -134,8 +134,7 @@ CMD ["php-fpm"]
 FROM caddy:${CADDY_VERSION}-builder-alpine AS symfony_caddy_builder
 
 # install Mercure and Vulcain modules
-RUN xcaddy build \
-    --with github.com/caddy-dns/cloudflare
+RUN xcaddy build
 
 FROM caddy:${CADDY_VERSION} AS symfony_caddy
 
